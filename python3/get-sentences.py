@@ -1,14 +1,22 @@
-# Goal: extract the list of key words from a " - " delimintated text file.
-# which is what TheChairman's Bao returns.
-
+# Situation: I want to pair the keywords of a Chariman's Bao article with the article's text.
+# I inspected the HTML to find the keywords and article text and saved them to separate files.
+# Make a tab separated text file that I can import into a (modified) Anki cloze deletion note type.
+# The modification replaces the "extra" field with a "word" and a "definition" field.
 
 import codecs
 from collections import defaultdict
 from csv import reader, writer
+
+# These are the script's parameters. Changing the last one lets you control the size of your sentences.
+# You could add "，", "：", "；" to isolate smaller segments of text than full (often run-on) sentences.
 keyFileName = "bao-key-words.txt"
 textFileName = "bao-text.txt"
 clozeFileName = "bao-cloze.txt"
 clauseBoundaries = ["。", "？", "！"]
+
+#
+# Write a class for convenience. KeywordClozer will process the data that I extract from keyFileName and textFileName.
+#
 
 class KeywordClozer:
     """Extract sample sentences from a body of text that contains the given keywords."""
