@@ -1,0 +1,3 @@
+This collection works with Python 3 (3.6.x).
+
+I chose Python 3 over Python 2 because version 3 handles unicode files much more naturally. 
